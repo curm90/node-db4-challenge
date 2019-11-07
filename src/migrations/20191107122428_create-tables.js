@@ -1,5 +1,5 @@
 exports.up = function(knex) {
-  return knex
+  return knex.schema
     .createTable('menu', tbl => {
       tbl.increments();
       tbl
@@ -8,7 +8,7 @@ exports.up = function(knex) {
         .notNullable();
     })
     .createTable('instructions', tbl => {
-      tbl.increments('instructions_id');
+      tbl.increments();
       tbl
         .integer('instruction_number')
         .unsigned()
@@ -23,7 +23,7 @@ exports.up = function(knex) {
         .onDelete('CASCADE');
     })
     .createTable('ingredients', tbl => {
-      tbl.increments('ingredient_id');
+      tbl.increments();
       tbl
         .text('ingredient')
         .unique()
@@ -35,14 +35,14 @@ exports.up = function(knex) {
         .integer('meal_id')
         .unsigned()
         .notNullable()
-        .references('meal_id')
+        .references('id')
         .inTable('menu')
         .onDelete('CASCADE');
       tbl
         .integer('ingredient_id')
         .unsigned()
         .notNullable()
-        .references('ingredient_id')
+        .references('id')
         .inTable('ingredients')
         .onDelete('CASCADE');
       tbl
