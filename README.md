@@ -32,12 +32,7 @@ In addition to the `migrations` and `seeding` scripts, write a data access file 
 
 - `getRecipes()`: should return a list of all recipes in the database.
 - `getShoppingList(recipe_id)`: should return a list of all ingredients and quantities for a given recipe
-  `SELECT ingredient, quantity, unit FROM meal_ingredients AS mi JOIN ingredients AS i ON i.id = mi.ingredient_id WHERE mi.meal_id = 1;`
 - `getInstructions(recipe_id)`: should return a list of step by step instructions for preparing a recipe
-  SELECT instruction,
-  instruction_number
-  FROM instructions
-  WHERE meal_id = 1;
 
 Organize and name your files anyway you see fit.
 

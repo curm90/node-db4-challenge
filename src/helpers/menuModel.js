@@ -20,6 +20,6 @@ module.exports = {
       .join('meal_ingredients as mi', 'mi.id', 'm.id')
       .join('ingredients as i', 'i.id', 'm.id')
       .select('m.meal_name')
-      .where({ 'i.ingredient': ingredient });
+      .where({ 'i.id': ingredient });
   }
 };
